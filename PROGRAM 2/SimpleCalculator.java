@@ -14,6 +14,7 @@ TextView tv;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
         e1=findViewById(R.id.editText1);
         e2=findViewById(R.id.editText2);
         tv=findViewById(R.id.textView);
