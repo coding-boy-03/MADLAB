@@ -19,8 +19,10 @@ Button b;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
         e1 = findViewById(R.id.editTextTextPersonName);
         b=findViewById(R.id.button);
+        
         t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int i) {
@@ -30,6 +32,7 @@ Button b;
             }
         });
     }
+    
     public void convert(View v){
         String tospeak=e1.getText().toString();
         t1.speak(tospeak,TextToSpeech.QUEUE_FLUSH,null);
