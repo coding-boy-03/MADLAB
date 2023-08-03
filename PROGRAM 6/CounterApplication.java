@@ -1,16 +1,19 @@
 public class MainActivity extends AppCompatActivity {
-    Button btnstart,btnstop,btnclr;
+    
+    Button btnstart,btnstop;
     TextView tv;
     int i=1;
     Handler custmHander=new Handler();
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
         btnstart=findViewById(R.id.button1);
         btnstop=findViewById(R.id.button2);
-
         tv=findViewById(R.id.textView);
+        
         btnstart.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 custmHander.postDelayed(updateTimerThread,0);
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    
     private final Runnable updateTimerThread =new Runnable() {
         @Override
         public void run() {
