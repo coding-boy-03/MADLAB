@@ -1,3 +1,4 @@
+
 package com.example.a10;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,7 @@ Button signUpBtn;
             public void onClick(View view) {
                 String email = emailEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
+                
                 if(!isValidPassword(password)){
                     Toast.makeText(MainActivity.this,"Password Does Not Match the Rules",Toast.LENGTH_LONG).show();
                     return;
