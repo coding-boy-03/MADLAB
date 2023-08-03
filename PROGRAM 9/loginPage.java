@@ -10,18 +10,24 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class loginPage extends AppCompatActivity {
+    
 EditText emailEditText,passwordEditText;
 Button loginBtn;
+    
 int counter = 2;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
+        
         emailEditText = findViewById(R.id.EmailId);
         passwordEditText = findViewById(R.id.Password);
         loginBtn = findViewById(R.id.button2);
+        
         String registeredEmail = getIntent().getStringExtra("email");
         String registeredPassword = getIntent().getStringExtra("password");
+        
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,6 +41,7 @@ int counter = 2;
                     Toast.makeText(loginPage.this,"Invalid Credentials",Toast.LENGTH_LONG).show();
                 }
                 counter--;
+                
                 if(counter==0){
                     Toast.makeText(loginPage.this,"Failed login attempts",Toast.LENGTH_LONG).show();
                     loginBtn.setEnabled(false);
