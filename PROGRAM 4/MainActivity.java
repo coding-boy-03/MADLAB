@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    
 EditText inputEditText;
 RadioButton inputRadioMeter,inputRadioCentimeter,inputRadioFeet;
 RadioButton outputRadioMeter,outputRadioCentimeter,outputRadioFeet;
@@ -20,15 +21,20 @@ TextView tv;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        inputEditText=findViewById(R.id.editText);
+        
+        
         inputRadioMeter=findViewById(R.id.inputRadioMeter);
         inputRadioCentimeter=findViewById(R.id.inputRadioCentimeter);
         inputRadioFeet=findViewById(R.id.inputRadioFeet);
+        
         outputRadioMeter=findViewById(R.id.outputRadioMeter);
         outputRadioCentimeter=findViewById(R.id.outputRadioCentimeter);
         outputRadioFeet=findViewById(R.id.outputRadioFeet);
+        
+        inputEditText=findViewById(R.id.editText);
         tv=findViewById(R.id.textView2);
         Button convert=findViewById(R.id.button);
+        
         convert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,16 +42,22 @@ TextView tv;
             }
         });
     }
+    
     public void convertUnits(){
+        
         String inputStr=inputEditText.getText().toString().trim();    //Trim(): Returns the copy of the string where Leading and Trailing white spaces are omitted.
+        
         if (TextUtils.isEmpty(inputStr)){
             tv.setText("Enter a value to convert");
             return;
         }
+        
         double inputValue=Double.parseDouble(inputStr);
+        
         double Meter = 0;
         double Centimeter = 0;
         double Feet = 0;
+        
         if (inputRadioMeter.isChecked()){
             Meter=inputValue;
         }
@@ -55,6 +67,7 @@ TextView tv;
         else if (inputRadioFeet.isChecked()){
             Feet=inputValue;
         }
+        
         if (outputRadioMeter.isChecked()){
             if (Meter>0){
                 tv.setText(String.format("%.2f Meters",Meter));
@@ -82,6 +95,7 @@ TextView tv;
                 tv.setText(String.format("%.2f Centimeters",Centimeter));
             }
         }
+        
         if (outputRadioFeet.isChecked()){
             if (Feet>0){
                 tv.setText(String.format("%.2f Feets",Feet));
