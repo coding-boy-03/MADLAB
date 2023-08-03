@@ -15,18 +15,22 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
+    
 Button changewallpaper;
 Timer mytimer;
 Drawable drawable;
 WallpaperManager wpm;
 int prev =1;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
         mytimer=new Timer();
         wpm = WallpaperManager.getInstance(this);
         changewallpaper=findViewById(R.id.button);
+        
         changewallpaper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,6 +38,7 @@ int prev =1;
             }
         });
     }
+    
     private void setWallpaper(){
         mytimer.schedule(new TimerTask() {
             @Override
