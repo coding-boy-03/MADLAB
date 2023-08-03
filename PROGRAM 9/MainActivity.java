@@ -12,15 +12,19 @@ import android.widget.Toast;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
+    
 EditText emailEditText,passwordEditText;
 Button signUpBtn;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
         emailEditText = findViewById(R.id.editTextTextEmailAddress);
         passwordEditText = findViewById(R.id.editTextTextPassword);
         signUpBtn = findViewById(R.id.button);
+        
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,10 +41,12 @@ Button signUpBtn;
             }
         });
     }
+    
     Pattern lowercase = Pattern.compile("^.*[a-z].*$");
     Pattern uppercase = Pattern.compile("^.*[A-Z].*$");
     Pattern number = Pattern.compile("^.*[0-9].*$");
     Pattern specialCharacter = Pattern.compile("^.*[^a-zA-Z0-9].*$");
+    
     private Boolean isValidPassword(String password){
         if(password.length()<8){
             return false;
